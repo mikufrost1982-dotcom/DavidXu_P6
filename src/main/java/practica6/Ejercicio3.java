@@ -14,9 +14,14 @@ public class Ejercicio3 {
         System.out.println("5. Salir.");
     }
 
-    public static String[]nuevoContacto(String[]agenda, String nombre){
-        agenda=Arrays.copyOf(agenda,agenda.length+1);
-        Arrays.fill(agenda, nombre);
+    public static String[]nuevoContacto(String[]agenda, String nombre, String telefono){
+        agenda=Arrays.copyOf(agenda,agenda.length+2);
+        for (int i = 0; i < agenda.length; i++) {
+            if (!Character.isLetterOrDigit(agenda[i].charAt(0))){
+                agenda[i]+=nombre;
+                agenda[i]+=" ("+telefono+")";
+            }
+        }
         return agenda;
     }
 
@@ -37,7 +42,10 @@ public class Ejercicio3 {
                     System.out.print("Teléfono: ");
                     telefonoContacto= sc.nextLine();
 
-                    nombre=nuevoContacto(nombre,nombrePersona);
+                    nombre=nuevoContacto(nombre,nombrePersona,telefonoContacto);
+                }
+                case 2 ->{
+
                 }
             }
         }while(opcion!=5);
