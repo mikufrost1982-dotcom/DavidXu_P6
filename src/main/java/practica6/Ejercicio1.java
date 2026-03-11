@@ -13,7 +13,6 @@ public class Ejercicio1 {
     }
 
     public static void actualizarPista(char letra, char[] palabraSecreta, char[] pistaActual) {
-
         for (int i = 0; i < palabraSecreta.length; i++) {
             if (Character.toLowerCase(palabraSecreta[i]) == Character.toLowerCase(letra)) {
                 pistaActual[i] = palabraSecreta[i];
@@ -21,7 +20,7 @@ public class Ejercicio1 {
         }
     }
 
-    public static boolean ganadorPartida(char[] pista, char[] palabraSecreta, char letra) {
+    public static boolean ganadorPartida(char[] palabraSecreta, char letra) {
         boolean gana = false;
 
         for (char elemento : palabraSecreta) {
@@ -53,7 +52,7 @@ public class Ejercicio1 {
 
             actualizarPista(jugadorB, palabraSecreta, pista);
 
-            ganador = ganadorPartida(pista, palabraSecreta, jugadorB);
+            ganador = ganadorPartida(palabraSecreta, jugadorB);
 
             if (!ganador) {
                 contador--;
