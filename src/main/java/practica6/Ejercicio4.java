@@ -1,26 +1,14 @@
 package practica6;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicio4 {
     public static Scanner sc=new Scanner(System.in);
 
-    public static char[] transformarArrays(String frase){
-        return frase.toCharArray();
-    }
-
-    public static boolean mayusculas(char elemento){
-        return Character.isUpperCase(elemento);
-    }
-    public static char letraMinusculas(char letra){
-        return Character.toLowerCase(letra);
-    }
-
     public static int buscarLetra(char letra, char[]conjunto1){
         int i=0;
         char letraMinus;
-        letraMinus=letraMinusculas(letra);
+        letraMinus=Character.toLowerCase(letra);
 
         while (i < conjunto1.length && letraMinus != conjunto1[i]) {
             i++;
@@ -29,14 +17,14 @@ public class Ejercicio4 {
     }
     public static String codificacion(String frase, char[]conjunto1, char[]conjunto2){
         String transformaTexto="";
-        char[]fraseTransformado=transformarArrays(frase);
+        char[]fraseTransformado=frase.toCharArray();
         int indice;
         boolean mayusculas;
 
         for (char elemento : fraseTransformado) {
             indice=buscarLetra(elemento,conjunto1);
 
-            mayusculas=mayusculas(elemento);
+            mayusculas=Character.isUpperCase(elemento);
             if (indice< conjunto1.length&&mayusculas) {
                 transformaTexto += Character.toUpperCase(conjunto2[indice]);
             } else if (indice < conjunto1.length) {
@@ -49,10 +37,6 @@ public class Ejercicio4 {
         return transformaTexto;
     }
 
-    public static void mostrarCodificado(String codificado){
-        System.out.println(codificado);
-    }
-
     static void main() {
         char[]conjunto1={'e','i','k','m','p','q','r','s','t','u','v'},
               conjunto2={'p','v','i','u','m','t','e','r','k','q','s'};
@@ -63,7 +47,7 @@ public class Ejercicio4 {
         do {
             codificado=codificacion(frase,conjunto1,conjunto2);
 
-            mostrarCodificado(codificado);
+            System.out.println(codificado);
 
             System.out.print("¿Quieres codificar otro texto?: ");
             codificarOtra= sc.nextLine();
