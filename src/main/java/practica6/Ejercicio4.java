@@ -10,11 +10,41 @@ public class Ejercicio4 {
         return frase.toCharArray();
     }
 
+    public static boolean mayusculas(char elemento){
+        return Character.isUpperCase(elemento);
+    }
+    public static char letraMinusculas(char letra){
+        return Character.toLowerCase(letra);
+    }
+
+    public static int buscarLetra(char letra, char[]conjunto1){
+        int i=0;
+        char letraMinus;
+        letraMinus=letraMinusculas(letra);
+
+        while (i < conjunto1.length && letraMinus != conjunto1[i]) {
+            i++;
+        }
+        return i;
+    }
     public static String codificacion(String frase, char[]conjunto1, char[]conjunto2){
         String transformaTexto="";
         char[]fraseTransformado=transformarArrays(frase);
+        int indice;
+        boolean mayusculas;
 
-        
+        for (char elemento : fraseTransformado) {
+            indice=buscarLetra(elemento,conjunto1);
+
+            mayusculas=mayusculas(elemento);
+            if (indice< conjunto1.length&&mayusculas) {
+                transformaTexto += Character.toUpperCase(conjunto2[indice]);
+            } else if (indice < conjunto1.length) {
+                transformaTexto += conjunto2[indice];
+            } else {
+                transformaTexto += elemento;
+            }
+        }
 
         return transformaTexto;
     }
@@ -28,10 +58,9 @@ public class Ejercicio4 {
               conjunto2={'p','v','i','u','m','t','e','r','k','q','s'};
         String frase, codificarOtra, codificado;
 
+        System.out.print("Introduzca un texto a codificar: ");
+        frase= sc.nextLine();
         do {
-            System.out.print("Introduzca un texto a codificar: ");
-            frase= sc.nextLine();
-
             codificado=codificacion(frase,conjunto1,conjunto2);
 
             mostrarCodificado(codificado);
@@ -42,10 +71,6 @@ public class Ejercicio4 {
             if (codificarOtra.equalsIgnoreCase("si")){
                 System.out.print("Introduzca un texto a codificar: ");
                 frase= sc.nextLine();
-
-                codificado=codificacion(frase,conjunto1,conjunto2);
-
-                mostrarCodificado(codificado);
             }
         }while(!codificarOtra.equalsIgnoreCase("no"));
     }
