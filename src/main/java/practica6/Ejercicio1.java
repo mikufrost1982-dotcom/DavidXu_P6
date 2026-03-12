@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class Ejercicio1 {
     public static Scanner sc = new Scanner(System.in);
 
-    public static void inicioPista(char[] palabraSecreta, char[] pista) {
+    public static void inicioJuego(char[] palabraSecreta, char[] pista) {
         for (int i = 0; i < palabraSecreta.length; i++) {
             pista[i] = '-';
         }
     }
 
-    public static void actualizarPista(char letra, char[] palabraSecreta, char[] pistaActual) {
+    public static void ahorcado(char letra, char[] palabraSecreta, char[] pistaActual) {
         for (int i = 0; i < palabraSecreta.length; i++) {
             if (Character.toLowerCase(palabraSecreta[i]) == Character.toLowerCase(letra)) {
                 pistaActual[i] = palabraSecreta[i];
@@ -43,14 +43,14 @@ public class Ejercicio1 {
 
         palabraSecreta = jugadorA.toCharArray();
         pista = new char[palabraSecreta.length];
-        inicioPista(palabraSecreta, pista);
+        inicioJuego(palabraSecreta, pista);
 
         while (!Arrays.equals(pista, palabraSecreta) && contador > 0) {
             System.out.println(String.valueOf(pista) + " Intentos: " + contador);
             System.out.print("\u001B[34m\u001B[1mJugador B.\u001B[0m Letra: ");
             jugadorB = sc.next().charAt(0);
 
-            actualizarPista(jugadorB, palabraSecreta, pista);
+            ahorcado(jugadorB, palabraSecreta, pista);
 
             ganador = ganadorPartida(palabraSecreta, jugadorB);
 
