@@ -35,7 +35,7 @@ public class Ejercicio1 {
         String jugadorA;
         char jugadorB;
         int contador = 7;
-        boolean ganador = false;
+        boolean ganador;
         char[] palabraSecreta, pista;
 
         System.out.println("\u001B[31m\u001B[1mJugador A.\u001B[0m Escriba una palabra: ");

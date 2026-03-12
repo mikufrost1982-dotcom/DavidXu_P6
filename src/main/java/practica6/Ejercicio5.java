@@ -7,7 +7,7 @@ public class Ejercicio5 {
 
     public static int contarLetras(String frase, char letra) {
         String minus = frase.toLowerCase();
-        int indice, i = 0;
+        int indice;
         int contador = 0;
 
         indice = minus.indexOf(letra);

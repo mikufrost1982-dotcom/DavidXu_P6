@@ -3,15 +3,15 @@ package practica6;
 import java.util.Scanner;
 
 public class Ejercicio4v2 {
-    public static Scanner sc=new Scanner(System.in);
+    public static Scanner sc = new Scanner(System.in);
 
-    public static String codificar(String frase, String conjunto1, String conjunto2){
+    public static String codificar(String frase, String conjunto1, String conjunto2) {
         int indice;
-        String transformaTexto="", letraMinus=frase.toLowerCase();
+        String transformaTexto = "", letraMinus = frase.toLowerCase();
         boolean mayusculas;
 
         for (int i = 0; i < frase.length(); i++) {
-            indice=conjunto1.indexOf(letraMinus.charAt(i));
+            indice = conjunto1.indexOf(letraMinus.charAt(i));
 
             mayusculas = Character.isUpperCase(frase.charAt(i));
             if (indice != -1 && mayusculas) {
@@ -26,22 +26,22 @@ public class Ejercicio4v2 {
     }
 
     static void main() {
-        String conjunto1="eikmpqrstuv", conjunto2="pviumterkqs", frase,codificado, codificarOtra;
+        String conjunto1 = "eikmpqrstuv", conjunto2 = "pviumterkqs", frase, codificado, codificarOtra;
 
         System.out.print("Introduzca un texto a codificar: ");
-        frase= sc.nextLine();
+        frase = sc.nextLine();
         do {
-            codificado=codificar(frase,conjunto1,conjunto2);
+            codificado = codificar(frase, conjunto1, conjunto2);
 
             System.out.println(codificado);
 
             System.out.print("¿Quieres codificar otro texto?: ");
-            codificarOtra= sc.nextLine();
+            codificarOtra = sc.nextLine();
 
-            if (codificarOtra.equalsIgnoreCase("si")){
+            if (codificarOtra.equalsIgnoreCase("si")) {
                 System.out.print("Introduzca un texto a codificar: ");
-                frase= sc.nextLine();
+                frase = sc.nextLine();
             }
-        }while(!codificarOtra.equalsIgnoreCase("no"));
+        } while (!codificarOtra.equalsIgnoreCase("no"));
     }
 }
