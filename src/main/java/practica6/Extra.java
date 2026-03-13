@@ -18,7 +18,6 @@ public class Extra {
         double barraVertical = '|', guionBajo= '_',
         mitad = (barraVertical - guionBajo)/2+guionBajo;
 
-
         for (int i = 0; i < longitud; i++) {
             generaCircuito=cpAleatoriaSueloValla();
             if (generaCircuito>guionBajo&&generaCircuito<mitad){
@@ -34,10 +33,37 @@ public class Extra {
         System.out.println("Circuito: "+circuito);
     }
 
+    public static String[] empiezaElJuego(int longitud){
+        String[] eleccionAtleta=new String[longitud];
+        sc.nextLine();
+        for (int i = 0; i < eleccionAtleta.length; i++) {
+            eleccionAtleta[i]=sc.nextLine();
+        }
+        return eleccionAtleta;
+    }
 
+    public static String compruebaSaltosOCorres(String[] sueloValla,String[] atleta,String circuito){
+        String meta="";
+        char barraVertical = '|', guionBajo= '_';
+
+        for (int i = 0; i < atleta.length; i++) {
+            if (!atleta[i].equalsIgnoreCase(sueloValla[0])&&circuito.charAt(i)!=barraVertical){
+                meta+='X';
+            } else if (!atleta[i].equalsIgnoreCase(sueloValla[1])&&circuito.charAt(i)!=guionBajo) {
+                meta+='X';
+            }else {
+                meta+=circuito.charAt(i);
+            }
+        }
+        return meta;
+    }
+
+//    public static boolean llegaMeta(String circuito, int longitud){
+//
+//    }
     static void main() {
-        String circuito;
-        String[]sueloValla={"run","jump"};
+        String circuito, meta;
+        String[]sueloValla={"run","jump"},atleta;
         int longitudCircuito = 0;
 
         while(longitudCircuito<5){
@@ -47,5 +73,11 @@ public class Extra {
 
         circuito=circuitoCarrera(longitudCircuito);
         mostrarCircuito(circuito);
+
+        System.out.println("Empieza la carrera (jump-salta / run-corre)");
+
+        atleta=empiezaElJuego(longitudCircuito);
+        meta=compruebaSaltosOCorres(sueloValla,atleta,circuito);
+        System.out.println(meta);
     }
 }
