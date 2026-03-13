@@ -12,10 +12,9 @@ public class Extra {
         return (Math.random() * (barraVertical-guionBajo)+guionBajo);
     }
 
-    public static String circuitoCarrera(int longitud){
+    public static String circuito(int longitud){
         String circuito="";
-        double generaCircuito;
-        double barraVertical = '|', guionBajo= '_',
+        double generaCircuito,barraVertical = '|', guionBajo= '_',
         mitad = (barraVertical - guionBajo)/2+guionBajo;
 
         for (int i = 0; i < longitud; i++) {
@@ -58,20 +57,22 @@ public class Extra {
         return meta;
     }
 
-//    public static boolean llegaMeta(String circuito, int longitud){
-//
-//    }
+    public static boolean llegaMeta(String circuitoRecorrido){
+        return !circuitoRecorrido.contains("X");
+    }
+
     static void main() {
         String circuito, meta;
         String[]sueloValla={"run","jump"},atleta;
         int longitudCircuito = 0;
+        boolean haLlegadoALaMeta;
 
         while(longitudCircuito<5){
             System.out.println("Introduce una longitud mínimo 5");
             longitudCircuito= sc.nextInt();
         }
 
-        circuito=circuitoCarrera(longitudCircuito);
+        circuito= circuito(longitudCircuito);
         mostrarCircuito(circuito);
 
         System.out.println("Empieza la carrera (jump-salta / run-corre)");
@@ -79,5 +80,13 @@ public class Extra {
         atleta=empiezaElJuego(longitudCircuito);
         meta=compruebaSaltosOCorres(sueloValla,atleta,circuito);
         System.out.println(meta);
+
+        haLlegadoALaMeta=llegaMeta(meta);
+
+        if (haLlegadoALaMeta){
+            System.out.println("Has superado la carrera");
+        }else {
+            System.out.println("Has perdido");
+        }
     }
 }
