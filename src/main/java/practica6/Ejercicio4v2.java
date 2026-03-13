@@ -2,6 +2,11 @@ package practica6;
 
 import java.util.Scanner;
 
+/***
+ * Este es la versión 2, hice con string y con indexOf
+ * @author David Xu
+ * @version v2 13/03/2026
+ */
 public class Ejercicio4v2 {
     public static Scanner sc = new Scanner(System.in);
 

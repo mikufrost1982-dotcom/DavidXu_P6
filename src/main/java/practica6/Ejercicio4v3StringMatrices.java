@@ -2,6 +2,11 @@ package practica6;
 
 import java.util.Scanner;
 
+/***
+ * Este es la versión 3, hice con string de matrices y con indexOf
+ * @author David Xu
+ * @version v3 13/03/2026
+ */
 public class Ejercicio4v3StringMatrices {
     public static Scanner sc = new Scanner(System.in);
 
