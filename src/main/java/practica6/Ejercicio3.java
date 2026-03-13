@@ -91,17 +91,26 @@ public class Ejercicio3 {
     }
 
     static void main() {
+        //Variables
         String[] contacto = new String[0];
         String nombrePersona, telefonoContacto;
         int opcion, longitudContacto;
 
         do {
+            //Llamamos a la función menu()
             menu();
+            //Pedimos al usuario que quiere hacer
             System.out.print("Elige una opción: ");
             opcion = sc.nextInt();
 
+            //Un switch para los casos que elige el usuario
             switch (opcion) {
                 case 1 -> {
+                    /**
+                     * Podemos usar 2 Scanner o usar nextLine(), lo hacemos así,
+                     * porque podemos evitar el búffer \n del nextInt
+                     * Pedimos al usuario el contacto de la persona que quiere añadir
+                     */
                     sc.nextLine();
                     System.out.print("Nombre: ");
                     nombrePersona = sc.nextLine();
@@ -109,30 +118,39 @@ public class Ejercicio3 {
                     System.out.print("Teléfono: ");
                     telefonoContacto = sc.nextLine();
 
+                    //Llamamos a la función para añadir la persona que quiso añadir el usuario
                     contacto = nuevoContacto(contacto, nombrePersona, telefonoContacto);
                     System.out.println();
                 }
 
                 case 2 -> {
+                    //Pedimos al usuario la persona que quiere buscar
                     sc.nextLine();
                     System.out.print("Nombre a buscar: ");
                     nombrePersona = sc.nextLine();
 
+                    //Llamamos a la función para buscar a la persona
                     buscarContacto(contacto, nombrePersona);
                 }
 
                 case 3 -> {
+                    //Llamamos a la función para mostrar todos los contacto que tiene el usuario
                     mostrarTodo(contacto);
                 }
 
                 case 4 -> {
+                    //Pedimos al usuario el contacto de la persona que quiere eliminar de la agenda
                     sc.nextLine();
                     System.out.print("Introduce el nombre del contacto: ");
                     nombrePersona = sc.nextLine();
 
+                    //Para comprobar si ha eliminado podemos guardar en un variable la longitud del
+                    //contacto
                     longitudContacto = contacto.length;
                     contacto = borrarContacto(contacto, nombrePersona);
 
+                    //Comprobamos la longitud original si es igual a la nueva longitud nos dice no existe
+                    //esa persona, si es contrario nos dirá ha sido eliminado
                     if (longitudContacto == contacto.length) {
                         System.out.println("La persona que quieres borrar no está en la agenda\n");
                     } else {
@@ -140,6 +158,6 @@ public class Ejercicio3 {
                     }
                 }
             }
-        } while (opcion != 5);
+        } while (opcion != 5);//El programa seguirá repitiendo si la opción es distinto a 5
     }
 }
