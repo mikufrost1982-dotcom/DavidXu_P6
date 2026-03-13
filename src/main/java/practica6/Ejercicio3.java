@@ -3,9 +3,17 @@ package practica6;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/***
+ * Es un programa que le podemos llamar agenda o contacto. Básicamente los contactos de tu móvil
+ * @author David Xu
+ * @version v1 13/03/2026
+ */
 public class Ejercicio3 {
     public static Scanner sc = new Scanner(System.in);
 
+    /***
+     * Menu de opciones para mostrar la funcionalidad que quieres hacer
+     */
     public static void menu() {
         System.out.println("1. Nuevo contacto.");
         System.out.println("2. Buscar contacto.");
@@ -14,6 +22,13 @@ public class Ejercicio3 {
         System.out.println("5. Salir.");
     }
 
+    /***
+     * Añadir a una persona al contacto o agenda
+     * @param agenda Recibe un contacto que está vació y sin especificar la longitud
+     * @param nombre Recibe el nombre que introduce el usuario
+     * @param telefono Recibe el teléfono que introduce el usuario
+     * @return Devuelve el variable añadido y asignado el nombre y el teléfono
+     */
     public static String[] nuevoContacto(String[] agenda, String nombre, String telefono) {
         agenda = Arrays.copyOf(agenda, agenda.length + 1);
         agenda[agenda.length - 1] = nombre + " (" + telefono + ")";
@@ -21,6 +36,12 @@ public class Ejercicio3 {
         return agenda;
     }
 
+    /***
+     * Buscamos el contacto que tenga ese nombre y muestra el nombre y el teléfono
+     * (Use la función buscar en los array de tipo numérico no ordenados, pero se puede hacer con indexOf)
+     * @param agenda Recibe los contactos que tiene el usuario
+     * @param nombre Recibe un nombre que quiere buscar el usuario
+     */
     public static void buscarContacto(String[] agenda, String nombre) {
         int i = 0;
         String minusNombre = nombre.toLowerCase();
@@ -36,6 +57,10 @@ public class Ejercicio3 {
         }
     }
 
+    /***
+     * Muestra todos los contactos que tiene el usuario añadido
+     * @param agenda Recibe los contactos que tiene
+     */
     public static void mostrarTodo(String[] agenda) {
         for (String elemento : agenda) {
             System.out.println("Nombre: " + elemento);
@@ -43,6 +68,12 @@ public class Ejercicio3 {
         System.out.println();
     }
 
+    /***
+     * Eliminamos el contacto que tenga ese nombre (también use la función buscar no ordenado, también se puede hacer con indexOf)
+     * @param agenda Recibe el contacto que tiene el usuario
+     * @param nombre Recibe el nombre que quise eliminar el usuario
+     * @return Devuelve el contacto que introduzcó el nombre eliminado del contacto
+     */
     public static String[] borrarContacto(String[] agenda, String nombre) {
         int i = 0;
         String minusNombre = nombre.toLowerCase();
