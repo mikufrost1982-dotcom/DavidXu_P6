@@ -10,6 +10,8 @@ import java.util.Scanner;
 public class Ejercicio4v2 {
     public static Scanner sc = new Scanner(System.in);
 
+    //Es lo mismo, solo que la diferencia es en vez de función buscar use el indexOf()
+    //Recorro un for para la frase y usamos el conjunto 1 para buscar la letra de la frase
     public static String codificar(String frase, String conjunto1, String conjunto2) {
         int indice;
         String transformaTexto = "", letraMinus = frase.toLowerCase();
@@ -31,7 +33,9 @@ public class Ejercicio4v2 {
     }
 
     static void main() {
-        String conjunto1 = "eikmpqrstuv", conjunto2 = "pviumterkqs", frase, codificado, codificarOtra;
+        //Variable
+        String conjunto1 = "eikmpqrstuv", conjunto2 = "pviumterkqs",
+        frase, codificado, codificarOtra;
 
         System.out.print("Introduzca un texto a codificar: ");
         frase = sc.nextLine();

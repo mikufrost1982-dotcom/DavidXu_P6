@@ -66,20 +66,25 @@ public class Ejercicio4 {
                 conjunto2 = {'p', 'v', 'i', 'u', 'm', 't', 'e', 'r', 'k', 'q', 's'};
         String frase, codificarOtra, codificado;
 
+        //El usuario introduce una frase para codificar
         System.out.print("Introduzca un texto a codificar: ");
         frase = sc.nextLine();
         do {
+            //Llamo a la función para codificar y que lo traduzca
             codificado = codificacion(frase, conjunto1, conjunto2);
 
             System.out.println(codificado);
 
+            //Pido al usuario si va a querer otro texto para codificar
             System.out.print("¿Quieres codificar otro texto?: ");
             codificarOtra = sc.nextLine();
 
+            //Compruebo si el usuario lo que introduce es igual a un si, el usuario
+            //escribirá el texto para codificarlo
             if (codificarOtra.equalsIgnoreCase("si")) {
                 System.out.print("Introduzca un texto a codificar: ");
                 frase = sc.nextLine();
             }
-        } while (!codificarOtra.equalsIgnoreCase("no"));
+        } while (!codificarOtra.equalsIgnoreCase("no"));//Sale del bucle cuando es distinto de no
     }
 }
