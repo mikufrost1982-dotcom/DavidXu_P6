@@ -10,6 +10,8 @@ import java.util.Scanner;
 public class Ejercicio4v3StringMatrices {
     public static Scanner sc = new Scanner(System.in);
 
+    //En vez de usar 2 variables utilicé los matrices fila 0 y letra inicio 0
+    // filas 1 letra de inicio 0
     public static String codificar(String frase, String[][] conjuntos) {
         int indice;
         String transformaTexto = "", letraMinus = frase.toLowerCase();
@@ -31,6 +33,7 @@ public class Ejercicio4v3StringMatrices {
     }
 
     static void main() {
+        //Variable
         String[][] conjuntos = {{"eikmpqrstuv"},{"pviumterkqs"}};
         String frase, codificado, codificarOtra;
 
